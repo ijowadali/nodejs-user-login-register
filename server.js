@@ -8,7 +8,7 @@ dotenv.config();
 
 import userRoutes from './routes/userRoutes.js';
 
-connectDb();
+connectDb().then();
 
 app.use(express.json());
 app.use(morgan('dev'));

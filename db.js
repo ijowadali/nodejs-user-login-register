@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-
+mongoose.set("strictQuery", false);
 const connectDb = async () => {
   const URL = process.env.MONGO_URI;
   try {
@@ -8,8 +8,9 @@ const connectDb = async () => {
       useFindAndModify: true,
       useCreateIndex: true,
       useUnifiedTopology: true,
+    },() => {
+      console.log('Connected to MongoDB');
     });
-    console.log('MongoDb is connected');
   } catch (error) {
     console.log(error.message);
   }
